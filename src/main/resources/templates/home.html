@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script>
+		function viewAllAds() {
+			$.ajax({
+				type: "GET",
+				url: "/ad/viewAll",
+				success: function (result) {
+					$('#loadDiv').html(result);
+				},
+				error: function (result) {
+					alert(result);
+				}
+			});
+		}
+
+		function loadCreateAdPage() {
+			$.ajax({
+				type: "GET",
+				url: "/ad/loadCreateAd",
+				success: function (result) {
+					$('#loadDiv').html(result);
+				},
+				error: function (result) {
+					alert(result);
+				}
+			});
+		}
+
+		function loadCreateCustomerPage() {
+			$.ajax({
+				type: "GET",
+				url: "/customer/loadCreateCustomer",
+				success: function (result) {
+					$('#loadDiv').html(result);
+				},
+				error: function (result) {
+					alert(result);
+				}
+			});
+		}
+
+		function loadDeleteCustomerPage() {
+			$.ajax({
+				type: "GET",
+				url: "/customer/loadDeleteCustomer",
+				success: function (result) {
+					$('#loadDiv').html(result);
+				},
+				error: function (result) {
+					alert(result);
+				}
+			});
+		}
+	</script>
+	<title>mobil.de</title>
+</head>
+
+<body>
+	<div class="jumbotron text-center ">
+		<h1>Welcome to the Application</h1>
+	</div>
+	<div class="d-flex justify-content-center">
+		<button type="button" class="btn btn-primary " id="viewAllAds" th:attr="onclick=|viewAllAds()|">Display
+			Ads</button>
+		<button type="button" class="btn btn-success" id="createAds" th:attr="onclick=|loadCreateAdPage()|">Create
+			Ads</button>
+		<button type="button" class="btn btn-success" id="createCustomer"
+			th:attr="onclick=|loadCreateCustomerPage()|">Create Customer</button>
+		<button type="button" class="btn btn-danger" id="deleteCustomer"
+			th:attr="onclick=|loadDeleteCustomerPage()|">Delete Customer</button>
+	</div>
+	<div class="container" id="loadDiv"></div>
+</body>
+
+</html>

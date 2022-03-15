@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<style>
+		th,
+		td {
+			border: 1px solid black;
+		}
+	</style>
+	<title>View Ad Detailed</title>
+</head>
+
+<body>
+	<div class="container">
+		<table class="table">
+			<tr>
+				<h3>Ad Details</h3>
+
+				<table class="table">
+					<tr>
+						<td>
+							<h4>Make and Model:</h4>
+							<h4 th:text="${ad.make} +'-'+ ${ad.model}"></h4>
+						</td>
+						<td>
+							<h4>Description:</h4>
+							<h4 th:text="${ad.description}"></h4>
+						</td>
+						<td>
+							<h4>Price:</h4>
+							<h4 th:text="${ad.price}"></h4>
+						</td>
+					</tr>
+				</table>
+				<table class="table">
+					<tr>
+						<h3>Publisher Details</hh3>
+							<td>
+								<h4>Category:</h4>
+								<h4 th:text="${ad.category}"></h4>
+							</td>
+							<td>
+								<h4>Publisher Name:</h4>
+								<h4 th:text="${ad.customer.firstName} + ' ' +  ${ad.customer.lastName}"></h4>
+							</td>
+							<td>
+								<h4>Publisher's Email:</h4>
+								<h4 th:text="${ad.customer.email}" />
+								</h4>
+							</td>
+					</tr>
+				</table>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>
